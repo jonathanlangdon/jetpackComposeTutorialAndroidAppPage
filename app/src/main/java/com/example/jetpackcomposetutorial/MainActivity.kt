@@ -13,7 +13,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -75,17 +74,17 @@ fun TutorialText(title: String, paragraph1: String, paragraph2: String, modifier
 
 @Composable
 fun JetpackComposeTutorialPage(title: String, paragraph1: String, paragraph2: String, modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.androidparty)
+    val jetpackComposeTopImage = painterResource(R.drawable.bg_compose_background)
     Box(modifier) {
         Image(
-            painter = image,
+            painter = jetpackComposeTopImage,
             contentDescription = null,
-            contentScale = ContentScale.Crop,
-            alpha = .5F
+            contentScale = ContentScale.FillWidth
         )
         TutorialText(
             title = title,
-            paragraph1 = from,
+            paragraph1 = paragraph1,
+            paragraph2 = paragraph2,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(8.dp)
@@ -95,11 +94,6 @@ fun JetpackComposeTutorialPage(title: String, paragraph1: String, paragraph2: St
 
 @Preview(showBackground = true)
 @Composable
-fun BirthdayCardPreview() {
-    HappyBirthdayTheme {
-        JetpackComposeTutorialPage(
-            title = stringResource(R.string.happy_birthday_text),
-            from = stringResource(R.string.signature_text)
-        )
-    }
+fun JetPackComposeTutorialPreview() {
+
 }
