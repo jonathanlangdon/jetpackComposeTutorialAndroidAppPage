@@ -22,7 +22,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 import com.example.jetpackcomposetutorial.R
 import com.example.jetpackcomposetutorial.ui.theme.JetpackComposeTutorialTheme
 
@@ -48,23 +47,28 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
+fun TutorialText(title: String, paragraph1: String, paragraph2: String, modifier: Modifier = Modifier) {
     Column(
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Top,
         modifier = modifier
     ) {
         Text(
-            text = message,
-            fontSize = 100.sp,
-            lineHeight = 116.sp,
-            textAlign = TextAlign.Center
-        )
-        Text(
-            text = from,
-            fontSize = 36.sp,
+            text = title,
+            fontSize = 24.sp,
             modifier = Modifier
                 .padding(16.dp)
-                .align(alignment = Alignment.CenterHorizontally)
+        )
+        Text(
+            text = paragraph1,
+            textAlign = TextAlign.Justify,
+            modifier = Modifier
+                .padding(16.dp)
+        )
+        Text(
+            text = paragraph2,
+            textAlign = TextAlign.Justify,
+            modifier = Modifier
+                .padding(16.dp)
         )
     }
 }
@@ -79,9 +83,9 @@ fun JetpackComposeTutorialPage(title: String, paragraph1: String, paragraph2: St
             contentScale = ContentScale.Crop,
             alpha = .5F
         )
-        GreetingText(
-            message = title,
-            from = from,
+        TutorialText(
+            title = title,
+            paragraph1 = from,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(8.dp)
