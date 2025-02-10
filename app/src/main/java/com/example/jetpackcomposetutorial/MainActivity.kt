@@ -1,8 +1,9 @@
-package com.example.happybirthday
+package com.example.jetpackcomposetutorial
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,7 +23,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.jetpackcomposetutorial.R
 import com.example.jetpackcomposetutorial.ui.theme.JetpackComposeTutorialTheme
 
 class MainActivity : ComponentActivity() {
@@ -45,8 +46,14 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 @Composable
-fun TutorialText(title: String, paragraph1: String, paragraph2: String, modifier: Modifier = Modifier) {
+fun TutorialText(
+    title: String,
+    paragraph1: String,
+    paragraph2: String,
+    modifier: Modifier = Modifier
+) {
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = modifier
@@ -73,7 +80,12 @@ fun TutorialText(title: String, paragraph1: String, paragraph2: String, modifier
 }
 
 @Composable
-fun JetpackComposeTutorialPage(title: String, paragraph1: String, paragraph2: String, modifier: Modifier = Modifier) {
+fun JetpackComposeTutorialPage(
+    title: String,
+    paragraph1: String,
+    paragraph2: String,
+    modifier: Modifier = Modifier
+) {
     val jetpackComposeTopImage = painterResource(R.drawable.bg_compose_background)
     Box(modifier) {
         Image(
@@ -95,5 +107,11 @@ fun JetpackComposeTutorialPage(title: String, paragraph1: String, paragraph2: St
 @Preview(showBackground = true)
 @Composable
 fun JetPackComposeTutorialPreview() {
-
+    JetpackComposeTutorialTheme {
+        JetpackComposeTutorialPage(
+            title = stringResource(R.string.jetpack_compose_tutorial_title),
+            paragraph1 = stringResource(R.string.compose_tutorial_paragraph_1),
+            paragraph2 = stringResource(R.string.compose_tutorial_paragraph_2)
+        )
+    }
 }
